@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="static/style.css">
+    <title>REGISTER</title>
+{% endblock %}
+
+{% block body %}
+  <div class="details">
+    <h4>{{ message }}</h4>
+    <div class="form">
+      <form class="register-form" action="{{ url_for('login') }}" method="POST">
+        <input name="name" type="text" placeholder="name"/>
+        <input name="id" type="text" placeholder="email address"/>
+        <input name="password" type="password" placeholder="password"/>
+        <!-- <input name="phoneNumber" type="text" placeholder="phone number"/>
+        <input name="sequrityQuestion" type="text" placeholder="sequrity question"/>
+        <input name="sequrityAnswer" type="text" placeholder="sequrity answer"/> -->
+        <button>create</button>
+        <p class="message">Already registered? <a href="{{ url_for('login') }}">Sign In</a></p>
+      </form>
+    </div>
+  </div>
+{% endblock %}

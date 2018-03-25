@@ -1,0 +1,31 @@
+{% extends "menu.html" %}
+
+{% block head %}
+  <title>Edit Profile</title>
+{% endblock %}
+
+{% block body %}
+
+  {% for i in range(l)  %}
+    <ul>
+      <div>
+      <li>
+        <p align="center"><b>{{ pollsOfUser[i].pollQuestion }}<b></p>
+        {% set k = [1] %}
+        <ol>
+        {% for candidate in ranks[i] %}
+          <div>
+              <li>
+                {{ candidate[1] }} : {{ candidate[0] }}
+                {%  if k.append(k.pop() + 1) %} {% endif %}
+              </li>
+          </div>
+        {% endfor %}
+      </ol>
+      </li>
+    </div>
+      <br>
+    </ul>
+  {% endfor %}
+
+{% endblock %}

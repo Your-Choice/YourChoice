@@ -1,0 +1,22 @@
+{% extends "menu.html" %}
+
+{% block head %}
+    <!-- <link rel="stylesheet" href="static/rate.css"> -->
+    <title>Polling</title>
+{% endblock %}
+
+{% block body %}
+    {% for poll in polls %}
+    {% if poll["isRated"] == False %}
+        <div class="poll">
+            <form action="{{ url_for('poll') }}" method="POST">
+                <input type="submit" name="id" value="{{ poll.id }}" style="display: none;">
+                <input type="submit" name="isRated" value="{{ poll.isRated }}" style="display: none;">
+                <input type="submit" name="userId" value="{{ poll.userId }}">
+                <input type="submit" name="pollQuestion" value="{{ poll.pollQuestion }}">
+                <!-- <button>POLL</button> -->
+            </form>
+        </div>
+    {% endif %}
+    {% endfor %}
+{% endblock %}

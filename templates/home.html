@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+{% block head %}
+<style>
+p {
+    color: green;
+    text-align: center;
+    font-size:20px;
+font: arial;
+}
+h3 {color: black;
+    text-align: center;
+    font-size:20px;
+font: timesnewroman;
+}
+div.columns       { width: 100%; float: left; }
+div.lightgreen   { width: 49%; height: 200px; float: left; }
+div.lightgreen    {margin:5px ;background-color: #90EE90; }
+div.clear         { clear: both; }
+
+</style>
+{% endblock %}
+
+{% block body %}
+<p> <b> Our Voting Services </b> </p>
+
+ <div class = "columns">
+
+
+  <div class="lightgreen"><h3>Online Polls</h3> <br/>   <c> YourChoice enables you to vote on a particular question, you want people to help you to choose onto. </c></div>
+
+  <div class="lightgreen"><h3>Rating</h3> <br/> <c>YourChoice enables you to put an option rating and ask the users to rate according to their likes/dislikes.</c> </div>
+  <br/>
+  <p> <b> Secure and Trustworthy </b> </p>
+
+   <div class = "columns">
+
+
+    <div class="lightgreen"><h3>Private</h3> <br/>   <c> YourChoice does not share the registrants' email id and uses them only for voting purposes </c></div>
+
+    <div class="lightgreen"><h3>Reliability</h3> <br/> <c>YourChoice tabulates all your data and choices and gives a reliable and correct result of your voting.</c> </div>
+    
+{% endblock %}
