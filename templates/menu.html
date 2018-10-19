@@ -7,62 +7,61 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
   <style>
-  .button {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 7px 15px;
-      text-align: center;
-      text-decoration: none;
-      display: block;
-      font-size: 15px;
-      margin: 4px 2px;
-      cursor: pointer;
-  }
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 7px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        font-size: 15px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
     .button:hover {
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
 
-  .sidenav {
-height: 100%;
-width: 0;
-position: fixed;
-z-index: 1;
-top: 0;
-right: 0;
-background-color: #111;
-overflow-x: hidden;
-transition: 0.5s;
-padding-top: 60px;
-}
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
 
-.sidenav a {
-padding: 8px 8px 8px 32px;
-text-decoration: none;
-font-size: 15px;
-color: #818181;
-display: block;
-transition: 0.3s;
-}
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 15px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
 
-.sidenav a:hover {
-color: #f1f1f1;
-}
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
 
-.sidenav .closebtn {
-position: absolute;
-top: 0;
-right: 25px;
-font-size: 36px;
-margin-left: 50px;
-}
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
 
-@media screen and (max-height: 450px) {
-.sidenav {padding-top: 15px;}
-.sidenav a {font-size: 18px;}
-}
+    @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+    }
 
   </style>
   {% block head %}
@@ -104,15 +103,13 @@ margin-left: 50px;
         <li><a href="{{ url_for('polling') }}">Polling</a></li>
         <li><a href="{{ url_for('rating') }}">Rating</a></li>
       </ul>
-      <li><p align="right"><button  class="button"style="cursor:pointer" onclick="openNav()">&#9776 Options </button></p></li>
+      <li><p align="right"><button  class="button"style="cursor:pointer" onclick="openNav()">{{ session["name"] }}</button></p></li>
     </div>
   </div>
 </nav>
-
 </div>
 
 <div>
-
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="{{ url_for('editprofile') }}">Edit Profile</a>
@@ -120,10 +117,10 @@ margin-left: 50px;
   <a href="{{ url_for('mypolls') }}">My Polls</a>
   <a href="#">View Results</a>
   <a href="#">Accept Requests</a>
-  <a href="#">Log Out</a>
+  <a href="{{ url_for('logout') }}">Log Out</a>
+</div>
 </div>
 
-</div>
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -137,6 +134,7 @@ function closeNav() {
     document.body.style.backgroundColor = "white";
 }
 </script>
+
 {% block body %}
 {% endblock %}
 

@@ -2,6 +2,14 @@
 
 {% block head %}
 <style>
+
+div.lightgreen{
+  padding: 20px;
+  width: 42%; height: 200px; float: left;
+  margin:20px ;background-color: #90EE90;
+
+}
+
 p {
     color: green;
     text-align: center;
@@ -13,10 +21,8 @@ h3 {color: black;
     font-size:20px;
 font: timesnewroman;
 }
-div.columns       { width: 100%; float: left; }
-div.lightgreen   { width: 49%; height: 200px; float: left; }
-div.lightgreen    {margin:5px ;background-color: #90EE90; }
-div.clear         { clear: both; }
+div.columns{ width: 100%; float: left; }
+div.clear{ clear: both; }
 
 </style>
 {% endblock %}
@@ -25,19 +31,26 @@ div.clear         { clear: both; }
 <p> <b> Our Voting Services </b> </p>
 
  <div class = "columns">
-
-
-  <div class="lightgreen"><h3>Online Polls</h3> <br/>   <c> YourChoice enables you to vote on a particular question, you want people to help you to choose onto. </c></div>
-
-  <div class="lightgreen"><h3>Rating</h3> <br/> <c>YourChoice enables you to put an option rating and ask the users to rate according to their likes/dislikes.</c> </div>
-  <br/>
+  <div class="lightgreen"><h3>Online Polls</h3> <center>  <img src= "static/vote2.jpeg" alt= "Vote" width= "50px" height= "50px"> </center>
+  <br><c> YourChoice enables you to vote on a particular question, you want people to help you to choose onto. </c></div>
+  <div class="lightgreen"><h3>Rating</h3><center>  <img src= "static/index.jpeg" alt= "Rating" width= "50px" height= "50px"> </center>
+   <br> <c>YourChoice enables you to put an option rating and ask the users to rate according to their likes/dislikes.</c> </div>
+  <br>
+  <br>
+</div>
   <p> <b> Secure and Trustworthy </b> </p>
 
    <div class = "columns">
+     <div class="lightgreen"><h3>Private</h3><center>  <img src= "static/lock.png" alt= "Vote" width= "50px" height= "50px"></center> <br><c> YourChoice does not share the registrants' email id and uses them only for voting purposes </c></div>
+     <div class="lightgreen"><h3>Reliability</h3><center>  <img src= "static/hand.png" alt= "Vote" width= "50px" height= "50px"> </center>
+     <br> <c>YourChoice tabulates all your data and choices and gives a reliable and correct result of your voting.</c> </div>
+</div>
 
-
-    <div class="lightgreen"><h3>Private</h3> <br/>   <c> YourChoice does not share the registrants' email id and uses them only for voting purposes </c></div>
-
-    <div class="lightgreen"><h3>Reliability</h3> <br/> <c>YourChoice tabulates all your data and choices and gives a reliable and correct result of your voting.</c> </div>
-    
+<b> About Us </b>
+<br>
+<z>  This page is created by students of NIT Hamirpur, of Department of Computer Science.</z><br><z><a href= "https://github.com/mnprtpsingh/ ">Aman Pratap Singh </a>,<a href= "https://github.com/rsingh16mi539">Reetesh Singh</a>, <a href= "https://github.com/SaxenaKartik/ ">Kartik Saxena</a> and <a href= "https://github.com/arunimakhunteta">Arunima Khunteta</a>. </z>
+<br>
+  <a href="#">Guidlines and Help</a>
+  <br>
+<a href="#">Contacts</a>
 {% endblock %}

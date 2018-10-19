@@ -1,22 +1,27 @@
 {% extends "menu.html" %}
 
 {% block head %}
-    <!-- <link rel="stylesheet" href="static/rate.css"> -->
     <title>Rating</title>
 {% endblock %}
 
 {% block body %}
     {% for poll in polls %}
-    {% if poll["isRated"] == True %}
-        <div class="poll">
-            <form action="{{ url_for('rate') }}" method="POST">
-                <input type="submit" name="id" value="{{ poll.id }}" style="display: none;">
-                <input type="submit" name="isRated" value="{{ poll.isRated }}" style="display: none;">
-                <input type="submit" name="userId" value="{{ poll.userId }}">
-                <input type="submit" name="pollQuestion" value="{{ poll.pollQuestion }}">
-                <!-- <button>POLL</button> -->
-            </form>
+        <div class="poll" style="width: 100%; margin: 40px; text-align: center;">
+            <p style="text-align: ">{{ poll.user.name }}</p>
+            <h3 style="width: 100%;">{{ poll.pollQuestion }}</h3>
+            <!-- <form action="{{ url_for('vote') }}" method="POST"> -->
+                <input type="number" name="poll" value="{{ poll.id }}" style="display: none;">
+                <div class="options" style="text-align: center;">
+                    {% for option in poll.options %}
+                        <input type="radio" id="{{ loop.index }}" name="choice" value="{{ option.id }}" style="display: inline;">
+                        <label for="{{ loop.index }}">{{ option.optionData }}</label>
+                    {% endfor %}
+                </div>
+                <div style="text-align: center">
+                    <input type="submit" name="response" value="Choose">
+                    <input type="submit" name="response" value="Report">
+                </div>
+            <!-- </form> -->
         </div>
-    {% endif %}
     {% endfor %}
 {% endblock %}

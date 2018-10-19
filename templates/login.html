@@ -2,14 +2,14 @@
 
 {% block head %}
     <link rel="stylesheet" href="static/style.css">
-    <title>LOGIN</title>
+    <title>Login</title>
 {% endblock %}
 
 {% block body %}
     <div class="details">
       <h4>{{ message }}</h4>
       <div class="form">
-        <form class="login-form" action="{{ url_for('profile') }}" method="POST">
+        <form class="login-form" action="{{ url_for('login') }}" method="POST">
           <input name="id" type="text" placeholder="username"/>
           <input name="password" type="password" placeholder="password"/>
           <button>login</button>

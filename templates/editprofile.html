@@ -6,19 +6,20 @@
 {% endblock %}
 
 {% block body %}
-    
     <div class="details">
-      <h4 align="center">EDIT PROFILE</h4> 
+      <h4 style="text-align: center;">{{ message }}</h4>
       <div class="form">
-        <form class="edit-profile" action="{{ url_for('login') }}" method="POST">
-          <input name="name" type="text" value="{{ user["name"] }}"/>
+        <form class="edit-profile" action="{{ url_for('editprofile') }}" method="POST">
+          <input name="name" type="text" value="{{ user.name }}"/>
           <input name="password" type="password" placeholder="Current Password"/>
           <input name="newPassword" type="password" placeholder="New Password"/>
-          <input name="newPassword" type="password" placeholder="Confirm Password"/>
-          <input name="phoneNumber" type="text" value="{{ user["phoneNumber"] }}"/>
-  
-          <button name="update" type="submit" style="margin: 6px">Update</button>
-          <button name="cancel" type="submit" style="margin: 6px">Cancel</button>
+          <input name="confirmPassword" type="password" placeholder="Confirm Password"/>
+          <input name="phoneNumber" type="text" value="{{ user.phoneNumber }}"/>
+          <input name="sequrityQuestion" type="text" value="{{ user.sequrityQuestion }}"/>
+          <input name="sequrityAnswer" type="text" value="{{ user.sequrityAnswer }}"/>
+
+          <button name="response" type="submit" style="margin: 4px" value="Update">Update</button>
+          <button name="response" type="submit" style="margin: 4px" value="Cancel">Cancel</button>
         </form>
       </div>
     </div>

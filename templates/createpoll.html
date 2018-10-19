@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "menu.html" %}
 
 {% block head %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-input[type=text], select, textarea {
+input[type=text], input[type=textarea], select {
     width: 75%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -15,13 +15,12 @@ input[type=text], select, textarea {
     resize: vertical;
 }
 
-
 label {
     padding: 12px 12px 12px 0;
     display: inline-block;
 }
 
-input[type=submit] {
+button[type=submit] {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -31,7 +30,7 @@ input[type=submit] {
     float: right;
 }
 
-input[type=submit]:hover {
+button[type=submit]:hover {
     background-color: #45a049;
 }
 
@@ -39,16 +38,23 @@ input[type=submit]:hover {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    align-content: center;
 }
 
 .col-25 {
-    float: left;
+    /* float: left; */
     width: 20%;
     margin-top: 6px;
 }
 
+.col-40 {
+    /* float: left; */
+    width: 50%;
+    margin-top: 10px;
+}
+
 .col-75 {
-    float: left;
+    /* float: left; */
     width: 50%;
     margin-top: 6px;
 }
@@ -62,89 +68,103 @@ input[type=submit]:hover {
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
-    .col-25, .col-75, input[type=submit] {
-        width: 100%;
+    .col-25, .col-75, button[type=submit] {
+        /* width: 100%; */
         margin-top: 0;
     }
 }
 </style>
+
+<link href="static/createpoll.css" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block body %}
 
+<h3 style="text-align: center;">Create a new poll</h3>
 <div class="container">
-  <form action="">
-    <div class="row">
+  <form action="{{ url_for('createpoll') }}" method="POST">
+    <!-- <div class="row">
       <div class="col-25">
         <label for="pname">Poll Name</label>
       </div>
       <div class="col-75">
         <input type="text" id="fname" name="PollName" placeholder="Poll name..">
       </div>
-    </div>
-    <div class="row">
+    </div> -->
+    <!-- <div class="row">
       <div class="col-25">
         <label for="lname">User Id</label>
       </div>
       <div class="col-75">
         <input type="text" id="lname" name="userId" placeholder="User Id..">
       </div>
-    </div>
+    </div> -->
 
     <div class="row">
       <div class="col-25">
-        <label for="lname">Poll Question</label>
+        <label for="question">Poll Question</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lname" name="pollQuestion" placeholder="What do you want to poll for?">
+        <input type="text" id="question" name="pollQuestion" placeholder="What do you want to poll for?">
       </div>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-25">
         <label for="lname">Number of options</label>
       </div>
       <div class="col-75">
         <input type="text" id="lname" name="numOfOptions" placeholder="Number of options..">
       </div>
-    </div>
+    </div> -->
 
     <div class="row">
       <div class="col-25">
-        <label for="lname">Do people need to register? </label>
+        <label for="options">Enter poll options</label>
 
+      </div>
+      <div class="col-75">
+        <input type="textarea" id="options" name="options" placeholder="Enter comma separated options" style="height:200px;">
+      </div>
+    </div>
+
+	<!-- <div class="row" name="div1">
+      <div class="col-25" >
+        <label for="lname">Set time limit</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="timeLimit">
+          <option value="2">Two Days</option>
+          <option value="4">Four Days</option>
+          <option value="7">Week</option>
+          <option value="30">Month</option>
+          <option value="365">Year</option>
+          <option value="0">Unlimited</option>
+
+        </select>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-40">
+        <label class="container1">Do people need to register?
+          <input type="checkbox" name="isOpen">
+          <span class="checkmark"></span>
+        </label>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-25">
-        <label for="lname">Is the poll rated?</label>
+      <div class="col-40">
+        <label class="container1">Is the poll rated?
+          <input type="checkbox" name="isRated">
+          <span class="checkmark"></span>
+        </label>
       </div>
-      </div>
-
-      <div class="row">
-        <div class="col-25">
-          <label for="lname">Is the poll timed?</label>
-        </div>
-
-      </div>
-
-      <div class="row">
-        <div class="col-25">
-          <label for="lname">Set time limit</label>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-25">
-          <label for="lname">Number of options</label>
-        </div>
-      </div>
-
-      
+    </div>
 
     <div>
-      <input type="submit" value="Submit">
+      <button name="response" type="submit" value="CreatePoll">Create Poll</button>
     </div>
   </form>
 </div>
