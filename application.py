@@ -255,32 +255,11 @@ def createpoll():
         return render_template("createpoll.html")
     elif request.method == "POST":
         pollQuestion = request.form["pollQuestion"]
-        # timeLimit = request.form.get("timeLimit")
         isRated = request.form.get("isRated")
         isOpen = request.form.get("isOpen")
         options = request.form["options"]
         listOfOptions = options.split(",")
         print(pollQuestion, isRated, isOpen, listOfOptions)
-
-        # poll = PollInfo()
-        # poll.userId = userId
-        # poll.pollQuestion = pollQuestion
-        # poll.numOfOptions = numOfOptions
-        # poll.timeLimit = timeLimit
-        # poll.isRated = isRated
-        # poll.isOpen = isOpen
-        #
-        # db.session.add(poll)
-        # db.session.commit()
-        #
-        # for o in listOfOptions :
-        #     options = Options()
-        #     options.pollId = poll.id
-        #     options.optionData = o
-        #     db.session.add(o)
-        #     db.session.commit()
-
-        # render_template("login.html")
         return redirect(url_for('polling'))
 
 
