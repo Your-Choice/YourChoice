@@ -1,0 +1,9 @@
+.gcloudignore
+.gitignore
+.git
+
+__pycache__/
+data.db
+Pipfile
+Pipfile.lock
+README.md
