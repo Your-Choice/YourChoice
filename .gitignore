@@ -1,5 +1,7 @@
 __pycache__/
 .vscode/
+.gcloudignore
 Pipfile.lock
 Pipfile
+app.yaml
 data.db
